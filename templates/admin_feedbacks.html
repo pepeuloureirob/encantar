@@ -1,0 +1,274 @@
+{% extends "base.html" %}
+
+
+{% block titulo %}
+Gerenciar Feedbacks | Encantar Cerimonial
+{% endblock %}
+
+
+
+{% block conteudo %}
+
+
+<section class="pagina-topo">
+
+
+    <div class="container">
+
+
+        <h1>
+            Gerenciar Feedbacks
+        </h1>
+
+
+        <p>
+            Aprove ou remova avaliações enviadas pelos clientes.
+        </p>
+
+
+    </div>
+
+
+</section>
+
+
+
+
+
+<section class="container">
+
+
+
+    <div class="admin-acoes">
+
+
+        <a
+            href="{{ url_for('dashboard') }}"
+            class="botao"
+        >
+
+            Voltar ao Painel
+
+        </a>
+
+
+    </div>
+
+
+
+
+
+    {% if feedbacks %}
+
+
+
+
+    <div class="cards">
+
+
+
+        {% for feedback in feedbacks %}
+
+
+
+
+
+        <div class="card">
+
+
+
+            <div class="card-body">
+
+
+
+
+
+                <h2>
+
+                    {{ feedback.nome }}
+
+                </h2>
+
+
+
+
+
+                <div class="estrelas">
+
+                    {% for i in range(feedback.estrelas) %}
+
+                        ⭐
+
+                    {% endfor %}
+
+                </div>
+
+
+
+
+
+                <p>
+
+                    {{ feedback.comentario }}
+
+                </p>
+
+
+
+
+
+                {% if feedback.aprovado %}
+
+
+
+                    <p class="status aprovado">
+
+                        ✔ Feedback publicado
+
+                    </p>
+
+
+
+                {% else %}
+
+
+
+                    <p class="status pendente">
+
+                        ⏳ Aguardando aprovação
+
+                    </p>
+
+
+
+                {% endif %}
+
+
+
+
+
+                <div class="acoes">
+
+
+
+
+
+                    {% if not feedback.aprovado %}
+
+
+
+                    <form
+                        method="POST"
+                        action="{{ url_for('aprovar_feedback', id=feedback.id) }}"
+                    >
+
+
+                        <button
+                            type="submit"
+                            class="botao"
+                        >
+
+                            Aprovar
+
+                        </button>
+
+
+                    </form>
+
+
+
+                    {% endif %}
+
+
+
+
+
+
+                    <form
+                        method="POST"
+                        action="{{ url_for('excluir_feedback', id=feedback.id) }}"
+                        onsubmit="return confirm('Deseja excluir este feedback?');"
+                    >
+
+
+                        <button
+                            type="submit"
+                            class="botao vermelho"
+                        >
+
+                            Excluir
+
+                        </button>
+
+
+                    </form>
+
+
+
+
+
+                </div>
+
+
+
+
+
+            </div>
+
+
+
+        </div>
+
+
+
+
+
+        {% endfor %}
+
+
+
+
+    </div>
+
+
+
+
+
+    {% else %}
+
+
+
+
+    <div class="sem-conteudo">
+
+
+        <h2>
+
+            Nenhum feedback encontrado.
+
+        </h2>
+
+
+        <p>
+
+            Quando os clientes enviarem avaliações, elas aparecerão aqui.
+
+        </p>
+
+
+    </div>
+
+
+
+
+    {% endif %}
+
+
+
+
+</section>
+
+
+
+
+{% endblock %}
