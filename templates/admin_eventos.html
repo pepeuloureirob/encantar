@@ -1,0 +1,234 @@
+{% extends "base.html" %}
+
+
+{% block titulo %}
+Gerenciar Eventos | Encantar Cerimonial
+{% endblock %}
+
+
+
+{% block conteudo %}
+
+
+<section class="pagina-topo">
+
+
+    <div class="container">
+
+
+        <h1>
+            Gerenciar Eventos
+        </h1>
+
+
+        <p>
+            Edite ou exclua os eventos cadastrados.
+        </p>
+
+
+    </div>
+
+
+</section>
+
+
+
+
+
+<section class="container">
+
+
+
+    <div class="admin-acoes">
+
+
+        <a
+            href="{{ url_for('novo_evento') }}"
+            class="botao"
+        >
+
+            + Novo Evento
+
+        </a>
+
+
+
+        <a
+            href="{{ url_for('dashboard') }}"
+            class="botao"
+        >
+
+            Voltar ao Painel
+
+        </a>
+
+
+    </div>
+
+
+
+
+
+    {% if eventos %}
+
+
+
+    <div class="cards">
+
+
+
+        {% for evento in eventos %}
+
+
+
+        <div class="card">
+
+
+
+            {% if evento.imagem %}
+
+
+
+            <img
+                src="{{ url_for('static', filename='uploads/' + evento.imagem) }}"
+                alt="{{ evento.nome }}"
+                class="evento-imagem"
+            >
+
+
+
+            {% endif %}
+
+
+
+
+
+            <div class="card-body">
+
+
+
+                <h2>
+
+                    {{ evento.nome }}
+
+                </h2>
+
+
+
+
+                <p>
+
+                    <strong>Data:</strong>
+
+                    {{ evento.data }}
+
+                </p>
+
+
+
+
+                <p>
+
+                    {{ evento.descricao[:150] }}
+
+                </p>
+
+
+
+
+                <div class="acoes">
+
+
+
+                    <a
+                        href="{{ url_for('editar_evento', id=evento.id) }}"
+                        class="botao"
+                    >
+
+                        Editar
+
+                    </a>
+
+
+
+
+
+                    <form
+                        method="POST"
+                        action="{{ url_for('excluir_evento', id=evento.id) }}"
+                        onsubmit="return confirm('Deseja excluir este evento?');"
+                    >
+
+
+                        <button
+                            type="submit"
+                            class="botao vermelho"
+                        >
+
+                            Excluir
+
+                        </button>
+
+
+                    </form>
+
+
+
+                </div>
+
+
+
+            </div>
+
+
+
+        </div>
+
+
+
+        {% endfor %}
+
+
+
+    </div>
+
+
+
+
+    {% else %}
+
+
+
+
+    <div class="sem-conteudo">
+
+
+        <h2>
+
+            Nenhum evento cadastrado.
+
+        </h2>
+
+
+        <p>
+
+            Clique em "Novo Evento" para adicionar o primeiro.
+
+        </p>
+
+
+    </div>
+
+
+
+
+    {% endif %}
+
+
+
+
+</section>
+
+
+
+{% endblock %}
