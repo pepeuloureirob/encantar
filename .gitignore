@@ -1,1 +1,51 @@
+# Ambiente virtual
+venv/
+.venv/
+env/
 
+# Cache do Python
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Banco de dados local
+instance/
+*.db
+*.sqlite
+*.sqlite3
+
+# Variáveis de ambiente
+.env
+
+# Arquivos de log
+*.log
+
+# Cache do Flask
+.flaskenv
+
+# Arquivos do sistema
+.DS_Store
+Thumbs.db
+
+# Configurações do VS Code
+.vscode/
+
+# Configurações do PyCharm
+.idea/
+
+# Arquivos temporários
+*.tmp
+*.temp
+
+# Uploads (opcional - remova se quiser versionar as imagens)
+static/uploads/
+
+# Cache de testes
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Build
+dist/
+build/
+*.egg-info/
