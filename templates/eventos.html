@@ -1,1 +1,138 @@
 
+{% extends "base.html" %}
+
+{% block titulo %}
+Eventos | Encantar Cerimonial
+{% endblock %}
+
+{% block conteudo %}
+
+<section class="pagina-topo">
+
+    <div class="container">
+
+        <h1>Eventos Realizados</h1>
+
+        <p>
+            Conheça alguns dos momentos especiais organizados pela
+            Encantar Cerimonial.
+        </p>
+
+    </div>
+
+</section>
+
+
+<section class="container">
+
+    {% if eventos %}
+
+    <div class="cards">
+
+        {% for evento in eventos %}
+
+        <div class="card evento-card">
+
+            {% if evento.imagem %}
+
+            <img
+                src="{{ url_for('static', filename='uploads/' + evento.imagem) }}"
+                alt="{{ evento.nome }}"
+                class="evento-imagem"
+            >
+
+            {% else %}
+
+            <img
+                src="{{ url_for('static', filename='img/evento_padrao.jpg') }}"
+                alt="Evento"
+                class="evento-imagem"
+            >
+
+            {% endif %}
+
+            <div class="card-body">
+
+                <h2>{{ evento.nome }}</h2>
+
+                <p class="data-evento">
+
+                    <strong>Data:</strong>
+                    {{ evento.data }}
+
+                </p>
+
+                <p>
+
+                    {{ evento.descricao }}
+
+                </p>
+
+                {% if evento.drive %}
+
+                <a
+                    href="{{ evento.drive }}"
+                    target="_blank"
+                    class="botao"
+                >
+
+                    Ver Fotos
+
+                </a>
+
+                {% endif %}
+
+            </div>
+
+        </div>
+
+        {% endfor %}
+
+    </div>
+
+    {% else %}
+
+    <div class="sem-conteudo">
+
+        <h2>
+            Ainda não existem eventos cadastrados.
+        </h2>
+
+        <p>
+            Em breve publicaremos nossos eventos mais recentes.
+        </p>
+
+    </div>
+
+    {% endif %}
+
+</section>
+
+
+<section class="cta">
+
+    <div class="container">
+
+        <h2>
+            Quer que seu evento apareça aqui?
+        </h2>
+
+        <p>
+            Entre em contato conosco e solicite um orçamento.
+        </p>
+
+        <a
+            href="https://wa.me/5583999999999"
+            target="_blank"
+            class="botao"
+        >
+
+            Solicitar Orçamento
+
+        </a>
+
+    </div>
+
+</section>
+
+{% endblock %}
