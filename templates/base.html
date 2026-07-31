@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>
+        {% block titulo %}
+            Encantar Cerimonial
+        {% endblock %}
+    </title>
+
+    <link
+        rel="stylesheet"
+        href="{{ url_for('static', filename='css/style.css') }}"
+    >
+
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+    >
+
+</head>
+
+<body>
+
+<header>
+
+    <div class="container">
+
+        <a
+            href="{{ url_for('index') }}"
+            class="logo"
+        >
+            Encantar Cerimonial
+        </a>
+
+        <nav>
+
+            <a href="{{ url_for('index') }}">
+                Início
+            </a>
+
+            <a href="{{ url_for('sobre') }}">
+                Sobre
+            </a>
+
+            <a href="{{ url_for('servicos') }}">
+                Serviços
+            </a>
+
+            <a href="{{ url_for('eventos') }}">
+                Eventos
+            </a>
+
+            <a href="{{ url_for('feedback') }}">
+                Feedback
+            </a>
+
+            {% if current_user.is_authenticated %}
+
+                <a href="{{ url_for('dashboard') }}">
+                    Painel
+                </a>
+
+                <a href="{{ url_for('logout') }}">
+                    Sair
+                </a>
+
+            {% else %}
+
+                <a href="{{ url_for('login') }}">
+                    Login
+                </a>
+
+            {% endif %}
+
+        </nav>
+
+    </div>
+
+</header>
+
+
+<main>
+
+{% with mensagens = get_flashed_messages(with_categories=true) %}
+
+{% if mensagens %}
+
+<div class="container">
+
+{% for categoria, mensagem in mensagens %}
+
+<div class="alert {{ categoria }}">
+
+{{ mensagem }}
+
+</div>
+
+{% endfor %}
+
+</div>
+
+{% endif %}
+
+{% endwith %}
+
+
+{% block conteudo %}
+
+{% endblock %}
+
+</main>
+
+
+<footer>
+
+    <div class="container">
+
+        <p>
+
+            © {{ 2026 }}
+            Encantar Cerimonial
+
+        </p>
+
+    </div>
+
+</footer>
+
+
+<a
+    class="whatsapp"
+    href="https://wa.me/5583999999999"
+    target="_blank"
+>
+
+<i class="fab fa-whatsapp"></i>
+
+</a>
+
+
+<button
+    id="topo"
+    onclick="window.scrollTo({top:0,behavior:'smooth'})"
+>
+
+↑
+
+</button>
+
+
+<script src="{{ url_for('static', filename='js/script.js') }}"></script>
+
+</body>
+
+</html>
