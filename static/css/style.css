@@ -1,1 +1,1272 @@
 
+/* ==========================================
+   RESET GERAL
+========================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+html {
+    scroll-behavior: smooth;
+}
+
+
+body {
+
+    font-family:
+        "Segoe UI",
+        Arial,
+        sans-serif;
+
+    background: #faf8f5;
+
+    color: #333;
+
+    line-height: 1.6;
+
+}
+
+
+
+/* ==========================================
+   CONTAINER
+========================================== */
+
+
+.container {
+
+    width: 90%;
+
+    max-width: 1200px;
+
+    margin: auto;
+
+}
+
+
+
+/* ==========================================
+   CABEÇALHO
+========================================== */
+
+
+header {
+
+    background:
+        #1c1b1a;
+
+    padding:
+        20px 0;
+
+    position:
+        sticky;
+
+    top: 0;
+
+    z-index: 1000;
+
+}
+
+
+
+header .container {
+
+    display:
+        flex;
+
+    justify-content:
+        space-between;
+
+    align-items:
+        center;
+
+}
+
+
+
+.logo {
+
+    color:
+        #d4af37;
+
+    font-size:
+        26px;
+
+    font-weight:
+        bold;
+
+    text-decoration:
+        none;
+
+}
+
+
+
+nav {
+
+    display:
+        flex;
+
+    gap:
+        20px;
+
+}
+
+
+
+nav a {
+
+    color:
+        white;
+
+    text-decoration:
+        none;
+
+    transition:
+        0.3s;
+
+}
+
+
+
+nav a:hover {
+
+    color:
+        #d4af37;
+
+}
+
+
+
+/* ==========================================
+   BOTÕES
+========================================== */
+
+
+.botao {
+
+    display:
+        inline-block;
+
+    background:
+        #d4af37;
+
+    color:
+        #fff;
+
+    padding:
+        12px 25px;
+
+    border-radius:
+        30px;
+
+    text-decoration:
+        none;
+
+    border:
+        none;
+
+    cursor:
+        pointer;
+
+    transition:
+        0.3s;
+
+}
+
+
+
+.botao:hover {
+
+    transform:
+        translateY(-3px);
+
+    opacity:
+        0.9;
+
+}
+
+
+
+.vermelho {
+
+    background:
+        #b33a3a;
+
+}
+
+
+
+/* ==========================================
+   HERO
+========================================== */
+
+
+.hero {
+
+    min-height:
+        80vh;
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    text-align:
+        center;
+
+    background:
+
+        linear-gradient(
+            rgba(0,0,0,0.55),
+            rgba(0,0,0,0.55)
+        ),
+
+        url("../img/capa.jpg");
+
+    background-size:
+        cover;
+
+    background-position:
+        center;
+
+    color:
+        white;
+
+}
+
+
+
+.hero h1 {
+
+    font-size:
+        48px;
+
+    margin-bottom:
+        20px;
+
+}
+
+
+
+.hero p {
+
+    font-size:
+        20px;
+
+    max-width:
+        700px;
+
+    margin:
+        auto auto 30px;
+
+}
+
+
+
+/* ==========================================
+   TÍTULOS
+========================================== */
+
+
+h1,
+h2 {
+
+    color:
+        #1c1b1a;
+
+}
+
+
+
+.pagina-topo {
+
+    padding:
+        70px 0;
+
+    text-align:
+        center;
+
+    background:
+        #f0e7d8;
+
+}
+
+
+
+.pagina-topo h1 {
+
+    font-size:
+        40px;
+
+    margin-bottom:
+        15px;
+
+}
+/* ==========================================
+   CARDS
+========================================== */
+
+
+.cards {
+
+    display:
+        grid;
+
+    grid-template-columns:
+        repeat(auto-fit, minmax(280px, 1fr));
+
+    gap:
+        30px;
+
+    margin:
+        40px 0;
+
+}
+
+
+
+.card {
+
+    background:
+        white;
+
+    border-radius:
+        15px;
+
+    overflow:
+        hidden;
+
+    box-shadow:
+        0 8px 25px rgba(0,0,0,0.08);
+
+    transition:
+        0.3s;
+
+}
+
+
+
+.card:hover {
+
+    transform:
+        translateY(-8px);
+
+}
+
+
+
+.card img {
+
+    width:
+        100%;
+
+    height:
+        230px;
+
+    object-fit:
+        cover;
+
+}
+
+
+
+.card-body {
+
+    padding:
+        25px;
+
+}
+
+
+
+.card-body h2,
+.card-body h3 {
+
+    margin-bottom:
+        15px;
+
+    color:
+        #1c1b1a;
+
+}
+
+
+
+.card-body p {
+
+    margin-bottom:
+        15px;
+
+}
+
+
+
+/* ==========================================
+   EVENTOS
+========================================== */
+
+
+.evento-imagem {
+
+    height:
+        250px;
+
+    object-fit:
+        cover;
+
+}
+
+
+
+.data-evento {
+
+    color:
+        #777;
+
+}
+
+
+
+/* ==========================================
+   FORMULÁRIOS
+========================================== */
+
+
+.formulario {
+
+    max-width:
+        700px;
+
+    margin:
+        40px auto;
+
+    background:
+        white;
+
+    padding:
+        35px;
+
+    border-radius:
+        15px;
+
+    box-shadow:
+        0 5px 20px rgba(0,0,0,0.08);
+
+}
+
+
+
+.formulario label {
+
+    display:
+        block;
+
+    margin-top:
+        15px;
+
+    margin-bottom:
+        8px;
+
+    font-weight:
+        bold;
+
+}
+
+
+
+.formulario input,
+.formulario textarea,
+.formulario select {
+
+    width:
+        100%;
+
+    padding:
+        14px;
+
+    border:
+        1px solid #ddd;
+
+    border-radius:
+        8px;
+
+    font-size:
+        16px;
+
+}
+
+
+
+.formulario textarea {
+
+    resize:
+        vertical;
+
+}
+
+
+
+.formulario button {
+
+    margin-top:
+        25px;
+
+}
+
+
+
+/* ==========================================
+   LOGIN
+========================================== */
+
+
+.login-area {
+
+    min-height:
+        80vh;
+
+    display:
+        flex;
+
+    justify-content:
+        center;
+
+    align-items:
+        center;
+
+}
+
+
+
+.login-box {
+
+    width:
+        100%;
+
+    max-width:
+        450px;
+
+    background:
+        white;
+
+    padding:
+        40px;
+
+    border-radius:
+        15px;
+
+    box-shadow:
+        0 8px 30px rgba(0,0,0,0.1);
+
+}
+
+
+
+.login-box h1 {
+
+    text-align:
+        center;
+
+    margin-bottom:
+        25px;
+
+}
+
+
+
+.login-info {
+
+    margin-top:
+        20px;
+
+    text-align:
+        center;
+
+    color:
+        #777;
+
+}
+
+
+
+/* ==========================================
+   DASHBOARD
+========================================== */
+
+
+.dashboard-card {
+
+    text-align:
+        center;
+
+}
+
+
+
+.numero {
+
+    display:
+        block;
+
+    font-size:
+        45px;
+
+    font-weight:
+        bold;
+
+    color:
+        #d4af37;
+
+}
+
+
+
+.admin-menu {
+
+    display:
+        flex;
+
+    flex-wrap:
+        wrap;
+
+    gap:
+        15px;
+
+    margin:
+        30px 0;
+
+}
+
+
+
+.admin-acoes {
+
+    display:
+        flex;
+
+    gap:
+        15px;
+
+    flex-wrap:
+        wrap;
+
+    margin:
+        30px 0;
+
+}
+
+
+
+.acoes {
+
+    display:
+        flex;
+
+    gap:
+        10px;
+
+    flex-wrap:
+        wrap;
+
+}
+
+
+
+.acoes form {
+
+    display:
+        inline;
+
+}
+
+
+
+/* ==========================================
+   STATUS FEEDBACK
+========================================== */
+
+
+.status {
+
+    font-weight:
+        bold;
+
+}
+
+
+
+.aprovado {
+
+    color:
+        green;
+
+}
+
+
+
+.pendente {
+
+    color:
+        orange;
+
+}
+/* ==========================================
+   CTA (CHAMADA PARA AÇÃO)
+========================================== */
+
+
+.cta {
+
+    background:
+        #1c1b1a;
+
+    color:
+        white;
+
+    text-align:
+        center;
+
+    padding:
+        70px 20px;
+
+    margin-top:
+        50px;
+
+}
+
+
+
+.cta h2 {
+
+    color:
+        #d4af37;
+
+    margin-bottom:
+        20px;
+
+}
+
+
+
+.cta p {
+
+    margin-bottom:
+        30px;
+
+}
+
+
+
+
+
+/* ==========================================
+   SOBRE
+========================================== */
+
+
+.sobre {
+
+    display:
+        grid;
+
+    grid-template-columns:
+        repeat(2, 1fr);
+
+    gap:
+        40px;
+
+    align-items:
+        center;
+
+    padding:
+        50px 0;
+
+}
+
+
+
+.sobre img {
+
+    width:
+        100%;
+
+    border-radius:
+        15px;
+
+}
+
+
+
+
+
+/* ==========================================
+   IMAGEM ATUAL EVENTO
+========================================== */
+
+
+.imagem-atual {
+
+    margin:
+        20px 0;
+
+}
+
+
+
+.imagem-atual img {
+
+    width:
+        250px;
+
+    border-radius:
+        10px;
+
+}
+
+
+
+
+
+/* ==========================================
+   SEM CONTEÚDO
+========================================== */
+
+
+.sem-conteudo {
+
+    text-align:
+        center;
+
+    padding:
+        50px;
+
+    background:
+        white;
+
+    border-radius:
+        15px;
+
+}
+
+
+
+
+
+/* ==========================================
+   ALERTAS
+========================================== */
+
+
+.alert {
+
+    padding:
+        15px;
+
+    margin:
+        20px 0;
+
+    border-radius:
+        8px;
+
+}
+
+
+
+.alert.success {
+
+    background:
+        #d4edda;
+
+    color:
+        #155724;
+
+}
+
+
+
+.alert.danger {
+
+    background:
+        #f8d7da;
+
+    color:
+        #721c24;
+
+}
+
+
+
+.alert.info {
+
+    background:
+        #d1ecf1;
+
+    color:
+        #0c5460;
+
+}
+
+
+
+
+
+/* ==========================================
+   WHATSAPP FLUTUANTE
+========================================== */
+
+
+.whatsapp {
+
+    position:
+        fixed;
+
+    right:
+        25px;
+
+    bottom:
+        25px;
+
+    width:
+        60px;
+
+    height:
+        60px;
+
+    background:
+        #25d366;
+
+    color:
+        white;
+
+    border-radius:
+        50%;
+
+    display:
+        flex;
+
+    justify-content:
+        center;
+
+    align-items:
+        center;
+
+    font-size:
+        32px;
+
+    text-decoration:
+        none;
+
+    z-index:
+        999;
+
+    box-shadow:
+        0 5px 15px rgba(0,0,0,0.3);
+
+}
+
+
+
+
+
+/* ==========================================
+   VOLTAR AO TOPO
+========================================== */
+
+
+#topo {
+
+    position:
+        fixed;
+
+    right:
+        25px;
+
+    bottom:
+        100px;
+
+    width:
+        45px;
+
+    height:
+        45px;
+
+    border:
+        none;
+
+    border-radius:
+        50%;
+
+    background:
+        #d4af37;
+
+    color:
+        white;
+
+    font-size:
+        22px;
+
+    cursor:
+        pointer;
+
+}
+
+
+
+
+
+/* ==========================================
+   RODAPÉ
+========================================== */
+
+
+footer {
+
+    background:
+        #111;
+
+    color:
+        white;
+
+    text-align:
+        center;
+
+    padding:
+        25px 0;
+
+    margin-top:
+        50px;
+
+}
+
+
+
+
+
+/* ==========================================
+   PÁGINA DE ERRO
+========================================== */
+
+
+.erro {
+
+    min-height:
+        70vh;
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    text-align:
+        center;
+
+}
+
+
+
+.erro h1 {
+
+    font-size:
+        90px;
+
+    color:
+        #d4af37;
+
+}
+
+
+
+
+
+/* ==========================================
+   ANIMAÇÕES
+========================================== */
+
+
+.card,
+.botao {
+
+    animation:
+        aparecer 0.5s ease;
+
+}
+
+
+
+@keyframes aparecer {
+
+
+    from {
+
+        opacity:
+            0;
+
+        transform:
+            translateY(20px);
+
+    }
+
+
+    to {
+
+        opacity:
+            1;
+
+        transform:
+            translateY(0);
+
+    }
+
+}
+
+
+
+
+
+/* ==========================================
+   RESPONSIVIDADE
+========================================== */
+
+
+@media(max-width: 768px) {
+
+
+
+header .container {
+
+    flex-direction:
+        column;
+
+}
+
+
+
+nav {
+
+    margin-top:
+        15px;
+
+    flex-wrap:
+        wrap;
+
+    justify-content:
+        center;
+
+}
+
+
+
+.hero h1 {
+
+    font-size:
+        32px;
+
+}
+
+
+
+.hero p {
+
+    font-size:
+        17px;
+
+}
+
+
+
+.sobre {
+
+    grid-template-columns:
+        1fr;
+
+}
+
+
+
+.admin-menu,
+.admin-acoes {
+
+    flex-direction:
+        column;
+
+}
+
+
+
+.botao {
+
+    width:
+        100%;
+
+    text-align:
+        center;
+
+}
+
+
+
+.card img {
+
+    height:
+        200px;
+
+}
+
+
+
+}
+
+
+
+@media(max-width: 480px) {
+
+
+.logo {
+
+    font-size:
+        22px;
+
+}
+
+
+.pagina-topo h1 {
+
+    font-size:
+        30px;
+
+}
+
+
+.formulario {
+
+    padding:
+        20px;
+
+}
+
+
+.whatsapp {
+
+    width:
+        55px;
+
+    height:
+        55px;
+
+    font-size:
+        28px;
+
+}
+
+
+}
