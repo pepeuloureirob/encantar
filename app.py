@@ -259,9 +259,9 @@ with app.app_context():
 
         config = Configuracao(
 
-            whatsapp="5583999999999",
+            whatsapp="5583988293316",
 
-            instagram="https://instagram.com/",
+            instagram="https://instagram.com/encantarcerimonial",
 
             texto_inicio=(
                 "Transformando sonhos em "
@@ -369,6 +369,52 @@ def salvar_upload(
         pasta,
         nome_padrao
 ):
+
+    if not arquivo:
+        return None
+
+
+    if arquivo.filename == "":
+        return None
+
+
+
+    os.makedirs(
+        pasta,
+        exist_ok=True
+    )
+
+
+    nome = secure_filename(
+        arquivo.filename
+    )
+
+
+    extensao = nome.rsplit(".", 1)[-1]
+
+
+    novo_nome = (
+        nome_padrao
+        +
+        "."
+        +
+        extensao
+    )
+
+
+
+    caminho = os.path.join(
+        pasta,
+        novo_nome
+    )
+
+
+
+    arquivo.save(caminho)
+
+
+
+    return novo_nome
 
 
     if not arquivo:
