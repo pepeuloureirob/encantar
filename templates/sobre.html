@@ -1,144 +1,207 @@
-
 {% extends "base.html" %}
+
 
 {% block titulo %}
 Sobre Nós | Encantar Cerimonial
 {% endblock %}
 
+
+
 {% block conteudo %}
+
+
 
 <section class="pagina-topo">
 
+
     <div class="container">
 
-        <h1>Sobre Nós</h1>
+
+        <h1>
+            Sobre Nós
+        </h1>
+
 
         <p>
-            Conheça um pouco da história da Encantar Cerimonial.
+            Conheça a história da Encantar Cerimonial.
         </p>
 
+
     </div>
+
 
 </section>
 
 
-<section class="container sobre">
 
-    <div class="sobre-imagem">
 
-        <img
-            src="{{ url_for('static', filename='img/sobre.jpg') }}"
-            alt="Encantar Cerimonial"
-        >
 
-    </div>
 
-    <div class="sobre-texto">
-
-        <h2>
-            Nossa História
-        </h2>
-
-        <p>
-            A Encantar Cerimonial nasceu com o propósito de transformar sonhos em
-            eventos inesquecíveis. Trabalhamos com dedicação, organização e atenção
-            aos mínimos detalhes para proporcionar experiências únicas aos nossos
-            clientes.
-        </p>
-
-        <p>
-            Cada casamento, aniversário, formatura ou evento corporativo é planejado
-            de forma personalizada, respeitando o estilo e os desejos de cada cliente.
-        </p>
-
-    </div>
-
-</section>
 
 
 <section class="container">
 
-    <div class="cards">
 
-        <div class="card">
 
-            <div class="card-body">
+<div class="sobre">
 
-                <h2>Missão</h2>
 
-                <p>
-                    Organizar eventos com excelência, criatividade e comprometimento,
-                    proporcionando tranquilidade e felicidade aos nossos clientes.
-                </p>
 
-            </div>
+    <div>
 
-        </div>
 
-        <div class="card">
 
-            <div class="card-body">
+        {% if imagens.sobre %}
 
-                <h2>Visão</h2>
 
-                <p>
-                    Ser referência em organização de eventos pela qualidade,
-                    profissionalismo e inovação.
-                </p>
 
-            </div>
+        <img
 
-        </div>
+        src="{{ url_for('static', filename='img/' + imagens.sobre) }}"
 
-        <div class="card">
+        alt="Encantar Cerimonial"
 
-            <div class="card-body">
+        >
 
-                <h2>Valores</h2>
 
-                <ul>
 
-                    <li>Ética</li>
+        {% endif %}
 
-                    <li>Compromisso</li>
 
-                    <li>Respeito</li>
-
-                    <li>Organização</li>
-
-                    <li>Excelência</li>
-
-                    <li>Transparência</li>
-
-                </ul>
-
-            </div>
-
-        </div>
 
     </div>
 
+
+
+
+
+    <div>
+
+
+
+        <h2>
+
+            Criando momentos inesquecíveis
+
+        </h2>
+
+
+
+        <p>
+
+            A Encantar Cerimonial nasceu com o propósito
+            de transformar sonhos em experiências únicas.
+
+        </p>
+
+
+
+
+        <p>
+
+            Nossa equipe trabalha com planejamento,
+            organização e atenção aos detalhes para que
+            cada evento seja realizado com excelência.
+
+        </p>
+
+
+
+
+        <p>
+
+            Do primeiro contato até o grande dia,
+            cuidamos de cada etapa para que nossos
+            clientes aproveitem cada momento.
+
+        </p>
+
+
+
+
+
+        <a
+
+        href="https://wa.me/{{ config.whatsapp }}"
+
+        target="_blank"
+
+        class="botao"
+
+        >
+
+            Fale conosco
+
+        </a>
+
+
+
+    </div>
+
+
+
+</div>
+
+
+
 </section>
+
+
+
+
+
+
 
 
 <section class="cta">
 
-    <div class="container">
 
-        <h2>
-            Vamos transformar seu evento em um momento inesquecível?
-        </h2>
 
-        <a
-            href="https://wa.me/5583999999999"
-            target="_blank"
-            class="botao"
-        >
-            Solicitar Orçamento
-        </a>
+<div class="container">
 
-    </div>
+
+<h2>
+
+Faça seu evento acontecer
+
+</h2>
+
+
+
+<p>
+
+Conte sua ideia para nossa equipe.
+
+</p>
+
+
+
+
+<a
+
+href="https://wa.me/{{ config.whatsapp }}"
+
+target="_blank"
+
+class="botao"
+
+>
+
+Solicitar orçamento
+
+</a>
+
+
+
+</div>
+
+
 
 </section>
+
+
+
+
+
 
 {% endblock %}
