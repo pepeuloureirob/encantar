@@ -1,0 +1,207 @@
+{% extends "base.html" %}
+
+
+{% block titulo %}
+Configurações | Encantar Cerimonial
+{% endblock %}
+
+
+
+{% block conteudo %}
+
+
+<section class="pagina-topo">
+
+    <div class="container">
+
+        <h1>
+            Configurações do Site
+        </h1>
+
+        <p>
+            Atualize as informações de contato e textos do cerimonial.
+        </p>
+
+    </div>
+
+</section>
+
+
+
+
+<section class="container">
+
+
+    <div class="formulario">
+
+
+        <form
+            method="POST"
+        >
+
+
+
+            <label>
+                Número do WhatsApp
+            </label>
+
+
+            <input
+                type="text"
+                name="whatsapp"
+                value="{{ config.whatsapp }}"
+                placeholder="Ex: 5583999999999"
+                required
+            >
+
+
+            <small>
+                Digite apenas números com DDD e país.
+            </small>
+
+
+
+
+
+            <label>
+                Link do Instagram
+            </label>
+
+
+            <input
+                type="url"
+                name="instagram"
+                value="{{ config.instagram }}"
+                placeholder="https://instagram.com/seuinstagram"
+            >
+
+
+
+
+
+
+            <label>
+                Texto da Página Inicial
+            </label>
+
+
+
+            <textarea
+                name="texto_inicio"
+                rows="5"
+                placeholder="Texto de apresentação"
+                required
+            >{{ config.texto_inicio }}</textarea>
+
+
+
+
+
+
+            <button
+                type="submit"
+                class="botao"
+            >
+
+                Salvar Configurações
+
+            </button>
+
+
+
+
+        </form>
+
+
+
+    </div>
+
+
+
+</section>
+
+
+
+
+<section class="container">
+
+
+    <div class="card">
+
+
+        <div class="card-body">
+
+
+            <h2>
+                Prévia dos dados atuais
+            </h2>
+
+
+
+            <p>
+
+                <strong>
+                    WhatsApp:
+                </strong>
+
+                {{ config.whatsapp }}
+
+            </p>
+
+
+
+            <p>
+
+                <strong>
+                    Instagram:
+                </strong>
+
+                {{ config.instagram }}
+
+            </p>
+
+
+
+            <p>
+
+                <strong>
+                    Texto:
+                </strong>
+
+                {{ config.texto_inicio }}
+
+            </p>
+
+
+        </div>
+
+
+    </div>
+
+
+
+</section>
+
+
+
+
+
+<section class="container">
+
+
+    <a
+        href="{{ url_for('dashboard') }}"
+        class="botao"
+    >
+
+        Voltar ao Painel
+
+    </a>
+
+
+</section>
+
+
+
+
+{% endblock %}
