@@ -1,1 +1,226 @@
 
+{% extends "base.html" %}
+
+{% block titulo %}
+Feedback | Encantar Cerimonial
+{% endblock %}
+
+{% block conteudo %}
+
+<section class="pagina-topo">
+
+    <div class="container">
+
+        <h1>
+            Feedback dos Clientes
+        </h1>
+
+        <p>
+            Veja o que nossos clientes dizem sobre suas experiências.
+        </p>
+
+    </div>
+
+</section>
+
+
+<section class="container">
+
+    <div class="formulario">
+
+        <h2>
+            Deixe sua avaliação
+        </h2>
+
+
+        <form
+            action="{{ url_for('enviar_feedback') }}"
+            method="POST"
+        >
+
+
+            <label>
+                Nome
+            </label>
+
+            <input
+                type="text"
+                name="nome"
+                placeholder="Digite seu nome"
+                required
+            >
+
+
+            <label>
+                Avaliação
+            </label>
+
+
+            <select
+                name="estrelas"
+                required
+            >
+
+                <option value="">
+                    Escolha uma nota
+                </option>
+
+                <option value="5">
+                    ⭐⭐⭐⭐⭐ - Excelente
+                </option>
+
+                <option value="4">
+                    ⭐⭐⭐⭐ - Muito bom
+                </option>
+
+                <option value="3">
+                    ⭐⭐⭐ - Bom
+                </option>
+
+                <option value="2">
+                    ⭐⭐ - Regular
+                </option>
+
+                <option value="1">
+                    ⭐ - Ruim
+                </option>
+
+            </select>
+
+
+            <label>
+                Comentário
+            </label>
+
+            <textarea
+                name="comentario"
+                rows="5"
+                placeholder="Conte sua experiência..."
+                required
+            ></textarea>
+
+
+            <button
+                type="submit"
+                class="botao"
+            >
+
+                Enviar Feedback
+
+            </button>
+
+
+        </form>
+
+    </div>
+
+</section>
+
+
+
+<section class="container">
+
+    <h2>
+        Avaliações aprovadas
+    </h2>
+
+
+    {% if feedbacks %}
+
+
+    <div class="cards">
+
+
+        {% for feedback in feedbacks %}
+
+
+        <div class="card">
+
+
+            <div class="card-body">
+
+
+                <h3>
+
+                    {{ feedback.nome }}
+
+                </h3>
+
+
+                <div class="estrelas">
+
+                    {% for i in range(feedback.estrelas) %}
+
+                        ⭐
+
+                    {% endfor %}
+
+                </div>
+
+
+                <p>
+
+                    "{{ feedback.comentario }}"
+
+                </p>
+
+
+            </div>
+
+
+        </div>
+
+
+        {% endfor %}
+
+
+    </div>
+
+
+    {% else %}
+
+
+    <div class="sem-conteudo">
+
+        <p>
+            Ainda não existem avaliações publicadas.
+        </p>
+
+    </div>
+
+
+    {% endif %}
+
+
+</section>
+
+
+<section class="cta">
+
+
+    <div class="container">
+
+
+        <h2>
+            Faça parte dos nossos momentos especiais
+        </h2>
+
+
+        <a
+            href="https://wa.me/5583999999999"
+            target="_blank"
+            class="botao"
+        >
+
+            Falar com a equipe
+
+        </a>
+
+
+    </div>
+
+
+</section>
+
+
+{% endblock %}
