@@ -487,9 +487,17 @@ def login_required(func):
 def index():
 
 
+    eventos = Evento.query.order_by(
+        Evento.id.desc()
+    ).all()
+
+
+
     return render_template(
 
-        "index.html"
+        "index.html",
+
+        eventos=eventos
 
     )
 
