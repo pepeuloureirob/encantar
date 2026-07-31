@@ -1,1 +1,198 @@
 
+{% extends "base.html" %}
+
+
+{% block titulo %}
+Editar Evento | Encantar Cerimonial
+{% endblock %}
+
+
+
+{% block conteudo %}
+
+
+<section class="pagina-topo">
+
+
+    <div class="container">
+
+
+        <h1>
+            Editar Evento
+        </h1>
+
+
+        <p>
+            Atualize as informações do evento selecionado.
+        </p>
+
+
+    </div>
+
+
+</section>
+
+
+
+
+
+<section class="container">
+
+
+    <div class="formulario">
+
+
+        <form
+            method="POST"
+            action="{{ url_for('editar_evento', id=evento.id) }}"
+            enctype="multipart/form-data"
+        >
+
+
+
+            <label>
+                Nome do Evento
+            </label>
+
+
+            <input
+                type="text"
+                name="nome"
+                value="{{ evento.nome }}"
+                required
+            >
+
+
+
+
+            <label>
+                Data do Evento
+            </label>
+
+
+            <input
+                type="text"
+                name="data"
+                value="{{ evento.data }}"
+                required
+            >
+
+
+
+
+            <label>
+                Descrição
+            </label>
+
+
+            <textarea
+                name="descricao"
+                rows="6"
+                required
+            >{{ evento.descricao }}</textarea>
+
+
+
+
+
+            <label>
+                Link do Google Drive
+            </label>
+
+
+            <input
+                type="url"
+                name="drive"
+                value="{{ evento.drive }}"
+            >
+
+
+
+
+
+            {% if evento.imagem %}
+
+
+            <div class="imagem-atual">
+
+
+                <p>
+                    Imagem atual:
+                </p>
+
+
+                <img
+                    src="{{ url_for('static', filename='uploads/' + evento.imagem) }}"
+                    alt="{{ evento.nome }}"
+                >
+
+
+            </div>
+
+
+            {% endif %}
+
+
+
+
+
+
+            <label>
+                Alterar foto de capa
+            </label>
+
+
+            <input
+                type="file"
+                name="imagem"
+                accept="image/*"
+            >
+
+
+
+
+
+
+            <button
+                type="submit"
+                class="botao"
+            >
+
+                Salvar Alterações
+
+            </button>
+
+
+
+
+        </form>
+
+
+
+    </div>
+
+
+</section>
+
+
+
+
+
+<section class="container">
+
+
+    <a
+        href="{{ url_for('admin_eventos') }}"
+        class="botao"
+    >
+
+        Voltar aos Eventos
+
+    </a>
+
+
+</section>
+
+
+
+{% endblock %}
