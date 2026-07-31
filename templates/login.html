@@ -1,1 +1,96 @@
 
+{% extends "base.html" %}
+
+{% block titulo %}
+Login Administrativo | Encantar Cerimonial
+{% endblock %}
+
+
+{% block conteudo %}
+
+<section class="login-area">
+
+
+    <div class="login-box">
+
+
+        <h1>
+            Área Administrativa
+        </h1>
+
+
+        <p>
+            Entre com suas credenciais para acessar o painel.
+        </p>
+
+
+
+        <form
+            method="POST"
+            action="{{ url_for('login') }}"
+        >
+
+
+
+            <label>
+                E-mail
+            </label>
+
+
+            <input
+                type="email"
+                name="email"
+                placeholder="Digite seu e-mail"
+                required
+            >
+
+
+
+            <label>
+                Senha
+            </label>
+
+
+            <input
+                type="password"
+                name="senha"
+                placeholder="Digite sua senha"
+                required
+            >
+
+
+
+            <button
+                type="submit"
+                class="botao"
+            >
+
+                Entrar
+
+            </button>
+
+
+
+        </form>
+
+
+
+        <div class="login-info">
+
+
+            <p>
+                Acesso administrativo exclusivo.
+            </p>
+
+
+        </div>
+
+
+
+    </div>
+
+
+</section>
+
+
+{% endblock %}
