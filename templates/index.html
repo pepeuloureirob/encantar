@@ -1,1 +1,205 @@
 
+{% extends "base.html" %}
+
+{% block titulo %}
+Encantar Cerimonial
+{% endblock %}
+
+{% block conteudo %}
+
+<section class="hero">
+
+    <div class="container">
+
+        <h1>
+            Transformando sonhos em momentos inesquecíveis
+        </h1>
+
+        <p>
+            A Encantar Cerimonial cuida de cada detalhe para que seu evento seja
+            único, elegante e inesquecível.
+        </p>
+
+        <a
+            href="https://wa.me/5583999999999"
+            target="_blank"
+            class="botao"
+        >
+            Solicitar Orçamento
+        </a>
+
+    </div>
+
+</section>
+
+
+<section class="container">
+
+    <h2>
+        Eventos Realizados
+    </h2>
+
+    <div class="cards">
+
+        {% if eventos %}
+
+            {% for evento in eventos %}
+
+            <div class="card">
+
+                {% if evento.imagem %}
+
+                <img
+                    src="{{ url_for('static', filename='uploads/' + evento.imagem) }}"
+                    alt="{{ evento.nome }}"
+                >
+
+                {% endif %}
+
+                <div class="card-body">
+
+                    <h3>
+
+                        {{ evento.nome }}
+
+                    </h3>
+
+                    <p>
+
+                        {{ evento.data }}
+
+                    </p>
+
+                    <p>
+
+                        {{ evento.descricao[:120] }}...
+
+                    </p>
+
+                    {% if evento.drive %}
+
+                    <a
+                        href="{{ evento.drive }}"
+                        target="_blank"
+                        class="botao"
+                    >
+
+                        Ver Fotos
+
+                    </a>
+
+                    {% endif %}
+
+                </div>
+
+            </div>
+
+            {% endfor %}
+
+        {% else %}
+
+            <p>
+
+                Nenhum evento cadastrado.
+
+            </p>
+
+        {% endif %}
+
+    </div>
+
+</section>
+
+
+<section class="container">
+
+    <h2>
+
+        O que nossos clientes dizem
+
+    </h2>
+
+    <div class="cards">
+
+        {% if feedbacks %}
+
+            {% for feedback in feedbacks %}
+
+            <div class="card">
+
+                <div class="card-body">
+
+                    <h3>
+
+                        {{ feedback.nome }}
+
+                    </h3>
+
+                    <p>
+
+                        {% for i in range(feedback.estrelas) %}
+
+                            ⭐
+
+                        {% endfor %}
+
+                    </p>
+
+                    <p>
+
+                        "{{ feedback.comentario }}"
+
+                    </p>
+
+                </div>
+
+            </div>
+
+            {% endfor %}
+
+        {% else %}
+
+            <p>
+
+                Ainda não existem avaliações.
+
+            </p>
+
+        {% endif %}
+
+    </div>
+
+</section>
+
+
+<section class="cta">
+
+    <div class="container">
+
+        <h2>
+
+            Vamos planejar seu evento?
+
+        </h2>
+
+        <p>
+
+            Entre em contato e solicite um orçamento sem compromisso.
+
+        </p>
+
+        <a
+            href="https://wa.me/5583999999999"
+            target="_blank"
+            class="botao"
+        >
+
+            Falar no WhatsApp
+
+        </a>
+
+    </div>
+
+</section>
+
+{% endblock %}
