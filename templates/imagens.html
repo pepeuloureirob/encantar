@@ -1,0 +1,192 @@
+{% extends "base.html" %}
+
+
+{% block titulo %}
+Gerenciar Imagens | Encantar Cerimonial
+{% endblock %}
+
+
+
+{% block conteudo %}
+
+
+<section class="pagina-topo">
+
+    <div class="container">
+
+        <h1>
+            Gerenciador de Imagens
+        </h1>
+
+        <p>
+            Altere as imagens principais do site.
+        </p>
+
+    </div>
+
+</section>
+
+
+
+
+<section class="container">
+
+
+    <div class="formulario">
+
+
+        <form
+            method="POST"
+            enctype="multipart/form-data"
+        >
+
+
+
+            <h2>
+                Logo do Cerimonial
+            </h2>
+
+
+            {% if imagens.logo %}
+
+            <img
+                src="{{ url_for('static', filename='img/' + imagens.logo) }}"
+                style="width:180px;border-radius:10px;"
+            >
+
+            {% endif %}
+
+
+            <label>
+                Alterar logo
+            </label>
+
+
+            <input
+                type="file"
+                name="logo"
+                accept="image/*"
+            >
+
+
+
+
+
+
+            <hr>
+
+
+
+
+            <h2>
+                Foto de Capa
+            </h2>
+
+
+            {% if imagens.capa %}
+
+            <img
+                src="{{ url_for('static', filename='img/' + imagens.capa) }}"
+                style="width:100%;max-width:500px;border-radius:10px;"
+            >
+
+            {% endif %}
+
+
+
+            <label>
+                Alterar capa do site
+            </label>
+
+
+            <input
+                type="file"
+                name="capa"
+                accept="image/*"
+            >
+
+
+
+
+
+            <hr>
+
+
+
+
+            <h2>
+                Foto Sobre Nós
+            </h2>
+
+
+
+            {% if imagens.sobre %}
+
+
+            <img
+                src="{{ url_for('static', filename='img/' + imagens.sobre) }}"
+                style="width:100%;max-width:500px;border-radius:10px;"
+            >
+
+
+            {% endif %}
+
+
+
+            <label>
+                Alterar imagem da página Sobre
+            </label>
+
+
+            <input
+                type="file"
+                name="sobre"
+                accept="image/*"
+            >
+
+
+
+
+
+            <button
+                type="submit"
+                class="botao"
+            >
+
+                Salvar Imagens
+
+            </button>
+
+
+
+        </form>
+
+
+
+    </div>
+
+
+
+</section>
+
+
+
+
+<section class="container">
+
+
+    <a
+        href="{{ url_for('dashboard') }}"
+        class="botao"
+    >
+
+        Voltar ao Painel
+
+    </a>
+
+
+</section>
+
+
+
+{% endblock %}
