@@ -1,1 +1,183 @@
 
+{% extends "base.html" %}
+
+{% block titulo %}
+Serviços | Encantar Cerimonial
+{% endblock %}
+
+{% block conteudo %}
+
+<section class="pagina-topo">
+
+    <div class="container">
+
+        <h1>Nossos Serviços</h1>
+
+        <p>
+            Organizamos cada detalhe para que seu evento seja exatamente como você sonhou.
+        </p>
+
+    </div>
+
+</section>
+
+
+<section class="container">
+
+    <div class="cards">
+
+        {% if servicos %}
+
+            {% for servico in servicos %}
+
+            <div class="card">
+
+                {% if servico.imagem %}
+
+                <img
+                    src="{{ url_for('static', filename='uploads/' + servico.imagem) }}"
+                    alt="{{ servico.titulo }}"
+                >
+
+                {% endif %}
+
+                <div class="card-body">
+
+                    <h2>{{ servico.titulo }}</h2>
+
+                    <p>
+                        {{ servico.descricao }}
+                    </p>
+
+                </div>
+
+            </div>
+
+            {% endfor %}
+
+        {% else %}
+
+            <!-- Serviços padrão caso não existam no banco -->
+
+            <div class="card">
+
+                <div class="card-body">
+
+                    <h2>💍 Casamentos</h2>
+
+                    <p>
+                        Planejamento completo, coordenação da cerimônia,
+                        recepção e acompanhamento de todos os fornecedores.
+                    </p>
+
+                </div>
+
+            </div>
+
+            <div class="card">
+
+                <div class="card-body">
+
+                    <h2>🎉 Aniversários</h2>
+
+                    <p>
+                        Organização personalizada para aniversários infantis,
+                        15 anos, 18 anos e festas adultas.
+                    </p>
+
+                </div>
+
+            </div>
+
+            <div class="card">
+
+                <div class="card-body">
+
+                    <h2>🎓 Formaturas</h2>
+
+                    <p>
+                        Cerimônias elegantes, bailes e eventos comemorativos
+                        com planejamento completo.
+                    </p>
+
+                </div>
+
+            </div>
+
+            <div class="card">
+
+                <div class="card-body">
+
+                    <h2>🏢 Eventos Corporativos</h2>
+
+                    <p>
+                        Congressos, palestras, confraternizações,
+                        inaugurações e eventos empresariais.
+                    </p>
+
+                </div>
+
+            </div>
+
+            <div class="card">
+
+                <div class="card-body">
+
+                    <h2>⛪ Cerimônias Religiosas</h2>
+
+                    <p>
+                        Organização completa de celebrações religiosas
+                        com toda a logística necessária.
+                    </p>
+
+                </div>
+
+            </div>
+
+            <div class="card">
+
+                <div class="card-body">
+
+                    <h2>✨ Assessoria Completa</h2>
+
+                    <p>
+                        Acompanhamento antes, durante e após o evento,
+                        garantindo tranquilidade aos clientes.
+                    </p>
+
+                </div>
+
+            </div>
+
+        {% endif %}
+
+    </div>
+
+</section>
+
+
+<section class="cta">
+
+    <div class="container">
+
+        <h2>
+            Gostou dos nossos serviços?
+        </h2>
+
+        <p>
+            Solicite um orçamento e descubra como podemos tornar seu evento inesquecível.
+        </p>
+
+        <a
+            href="https://wa.me/5583999999999"
+            target="_blank"
+            class="botao"
+        >
+            Solicitar Orçamento
+        </a>
+
+    </div>
+
+</section>
+
+{% endblock %}
