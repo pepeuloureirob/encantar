@@ -1,0 +1,253 @@
+{% extends "base.html" %}
+
+
+{% block titulo %}
+Dashboard | Encantar Cerimonial
+{% endblock %}
+
+
+
+{% block conteudo %}
+
+
+<section class="pagina-topo">
+
+
+    <div class="container">
+
+
+        <h1>
+            Painel Administrativo
+        </h1>
+
+
+        <p>
+            Bem-vindo ao gerenciamento do Encantar Cerimonial.
+        </p>
+
+
+    </div>
+
+
+</section>
+
+
+
+
+<section class="container">
+
+
+    <div class="cards">
+
+
+        <div class="card dashboard-card">
+
+
+            <div class="card-body">
+
+
+                <h2>
+                    Eventos
+                </h2>
+
+
+                <span class="numero">
+
+                    {{ total_eventos }}
+
+                </span>
+
+
+                <p>
+                    Eventos cadastrados.
+                </p>
+
+
+            </div>
+
+
+        </div>
+
+
+
+
+        <div class="card dashboard-card">
+
+
+            <div class="card-body">
+
+
+                <h2>
+                    Feedbacks Pendentes
+                </h2>
+
+
+                <span class="numero">
+
+                    {{ feedbacks_pendentes }}
+
+                </span>
+
+
+                <p>
+                    Aguardando aprovação.
+                </p>
+
+
+            </div>
+
+
+        </div>
+
+
+
+
+
+        <div class="card dashboard-card">
+
+
+            <div class="card-body">
+
+
+                <h2>
+                    Feedbacks Aprovados
+                </h2>
+
+
+                <span class="numero">
+
+                    {{ feedbacks_aprovados }}
+
+                </span>
+
+
+                <p>
+                    Publicados no site.
+                </p>
+
+
+            </div>
+
+
+        </div>
+
+
+
+    </div>
+
+
+</section>
+
+
+
+
+
+<section class="container">
+
+
+    <h2>
+        Gerenciamento
+    </h2>
+
+
+
+    <div class="admin-menu">
+
+
+
+        <a
+            href="{{ url_for('novo_evento') }}"
+            class="botao"
+        >
+
+            + Novo Evento
+
+        </a>
+
+
+
+
+        <a
+            href="{{ url_for('admin_eventos') }}"
+            class="botao"
+        >
+
+            Gerenciar Eventos
+
+        </a>
+
+
+
+
+        <a
+            href="{{ url_for('admin_feedbacks') }}"
+            class="botao"
+        >
+
+            Gerenciar Feedbacks
+
+        </a>
+
+
+
+
+        <a
+            href="{{ url_for('logout') }}"
+            class="botao vermelho"
+        >
+
+            Sair
+
+        </a>
+
+
+
+    </div>
+
+
+</section>
+
+
+
+
+<section class="container">
+
+
+    <div class="informacao-admin">
+
+
+        <h2>
+            Dicas
+        </h2>
+
+
+        <ul>
+
+
+            <li>
+                Cadastre fotos dos eventos para aumentar a confiança dos clientes.
+            </li>
+
+
+            <li>
+                Aprove feedbacks positivos para aparecerem no site.
+            </li>
+
+
+            <li>
+                Mantenha os eventos sempre atualizados.
+            </li>
+
+
+        </ul>
+
+
+    </div>
+
+
+</section>
+
+
+
+
+{% endblock %}
