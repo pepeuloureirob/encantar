@@ -1445,7 +1445,7 @@ def erro_servidor(e):
 # =====================================
 # INICIAR SERVIDOR
 # =====================================
-
+print(app.url_map)
 
 
 if __name__ == "__main__":
