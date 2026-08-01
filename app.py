@@ -532,19 +532,13 @@ def login_required(func):
 @app.route("/")
 def index():
 
-
     eventos = Evento.query.order_by(
         Evento.id.desc()
     ).all()
 
-
-
     return render_template(
-
         "index.html",
-
         eventos=eventos
-
     )
 
 
